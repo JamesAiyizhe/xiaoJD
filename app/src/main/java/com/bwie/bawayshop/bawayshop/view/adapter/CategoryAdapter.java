@@ -67,7 +67,7 @@ public class CategoryAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 selectPosition = position;
-                persenter.getRightList(getItem(position).getGc_id());
+                persenter.getRightList_1(getItem(position).getGc_id());
                 notifyDataSetChanged();
             }
         });

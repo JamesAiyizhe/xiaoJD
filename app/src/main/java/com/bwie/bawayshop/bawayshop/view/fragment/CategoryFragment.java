@@ -8,11 +8,12 @@ import android.widget.Toast;
 
 import com.bwie.bawayshop.bawayshop.R;
 import com.bwie.bawayshop.bawayshop.model.bean.CategoryBean;
-import com.bwie.bawayshop.bawayshop.model.bean.CategoryChild;
+import com.bwie.bawayshop.bawayshop.model.bean.CategoryChild2;
 import com.bwie.bawayshop.bawayshop.presenter.CategoryPresenter;
 import com.bwie.bawayshop.bawayshop.view.adapter.CategoryAdapter;
 import com.bwie.bawayshop.bawayshop.view.interfaces.CategoryView;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -46,6 +47,7 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
         categoryPresenter.attchView(this);
         //请求左边条目的数据
         categoryPresenter.getLeftList();
+
         return View.inflate(mActivity, R.layout.category_fragment, null);
     }
     /**
@@ -62,9 +64,9 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
                 Log.e("TAG", mList.get(0).getGc_name());
                 break;
             case 1:
-                List<CategoryChild.DatasBean.ClassListBean> class_list = (List<CategoryChild.DatasBean.ClassListBean>) message.obj;
-                Toast.makeText(mContext, class_list.get(0).getGc_name(), Toast.LENGTH_SHORT).show();
-                Log.e("TAG", class_list.get(0).getGc_name());
+                HashMap<String,List<CategoryChild2.DatasBean.ClassListBean>> map = (HashMap<String, List<CategoryChild2.DatasBean.ClassListBean>>) message.obj;
+                Toast.makeText(mContext, map.size()+"", Toast.LENGTH_SHORT).show();
+
                 break;
         }
     }

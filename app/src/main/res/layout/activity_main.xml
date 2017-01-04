@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/content_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <RadioButton
+            android:id="@+id/rb_homeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/home_select"
+            android:button="@null"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/rb_categoryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/category_select"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/rb_catBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/car_select"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/rb_mineBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/mine_select"
+            android:layout_weight="1"/>
+
+
+    </RadioGroup>
+</LinearLayout>

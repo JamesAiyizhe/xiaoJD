@@ -6,12 +6,11 @@ import com.bwie.bawayshop.bawayshop.model.api.HttpRequest;
 import com.bwie.bawayshop.bawayshop.model.bean.CategoryBean;
 import com.bwie.bawayshop.bawayshop.model.bean.CategoryChild;
 import com.bwie.bawayshop.bawayshop.model.bean.CategoryChild2;
+import com.bwie.bawayshop.bawayshop.system.Link;
 import com.bwie.bawayshop.bawayshop.view.interfaces.CategoryView;
 
 import java.util.HashMap;
 import java.util.List;
-
-import system.Link;
 
 /**
  * Created by Administrator on 2016/12/27 0027.

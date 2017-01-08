@@ -35,4 +35,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.facebook.fresco.helper:fresco-helper:1.1.8'
     compile 'com.facebook.fresco.helper:fresco-photoview:1.1.6'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

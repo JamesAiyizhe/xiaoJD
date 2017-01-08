@@ -1,6 +1,8 @@
 package com.bwie.bawayshop.bawayshop.view.fragment;
 
 import android.os.Message;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -11,6 +13,7 @@ import com.bwie.bawayshop.bawayshop.model.bean.CategoryBean;
 import com.bwie.bawayshop.bawayshop.model.bean.CategoryChild2;
 import com.bwie.bawayshop.bawayshop.presenter.CategoryPresenter;
 import com.bwie.bawayshop.bawayshop.view.adapter.CategoryAdapter;
+import com.bwie.bawayshop.bawayshop.view.adapter.CategoryChild2Adapter;
 import com.bwie.bawayshop.bawayshop.view.interfaces.CategoryView;
 
 import java.util.HashMap;
@@ -27,6 +30,7 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
     private ListView mCateList;
     private CategoryPresenter categoryPresenter;
     private CategoryAdapter mAdapter;
+    private RecyclerView mCategoryDes;
 
 
     /**
@@ -39,6 +43,7 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
     @Override
     public void initUI(View view) {
         mCateList = (ListView) view.findViewById(R.id.lv_categroylist);
+        mCategoryDes = (RecyclerView) view.findViewById(R.id.re_categroylist_dea);
     }
 
     @Override
@@ -66,7 +71,9 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
             case 1:
                 HashMap<String,List<CategoryChild2.DatasBean.ClassListBean>> map = (HashMap<String, List<CategoryChild2.DatasBean.ClassListBean>>) message.obj;
                 Toast.makeText(mContext, map.size()+"", Toast.LENGTH_SHORT).show();
-
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
+                mCategoryDes.setLayoutManager(layoutManager);
+                mCategoryDes.setAdapter(new CategoryChild2Adapter(map,mContext));
                 break;
         }
     }

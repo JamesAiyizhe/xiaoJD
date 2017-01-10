@@ -3,7 +3,6 @@ package com.bwie.bawayshop.bawayshop.view.fragment;
 import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -66,11 +65,11 @@ public class CategoryFragment extends BaseFragment implements CategoryView {
                 this.mList = (List<CategoryBean.DatasBean.ClassListBean>) message.obj;
                 mAdapter = new CategoryAdapter(mList, mContext, categoryPresenter);
                 mCateList.setAdapter(mAdapter);
-                Log.e("TAG", mList.get(0).getGc_name());
+
                 break;
             case 1:
                 HashMap<String,List<CategoryChild2.DatasBean.ClassListBean>> map = (HashMap<String, List<CategoryChild2.DatasBean.ClassListBean>>) message.obj;
-                Toast.makeText(mContext, map.size()+"", Toast.LENGTH_SHORT).show();
+
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
                 mCategoryDes.setLayoutManager(layoutManager);
                 mCategoryDes.setAdapter(new CategoryChild2Adapter(map,mContext));

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="head_llayout" type="id"/>
+    <item name="particulars_goods_list_recyclerview" type="id"/>
+    <item name="particulars_tuijian_tv" type="id"/>
+    <item name="id_stickynavlayout_innerscrollview" type="id"/>
+
+</resources>

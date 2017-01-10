@@ -10,11 +10,11 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.bwie.bawayshop.bawayshop.R;
 import com.bwie.bawayshop.bawayshop.model.bean.ShopListBean;
@@ -101,10 +101,11 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
     }
 
     private void initDatas() {
-        Intent intent = new Intent();
-        String gc_id = intent.getStringExtra("gc_id");
+        Intent intent = getIntent();
+        String gc_id = intent.getStringExtra("gcid");
         pesenter = new ShopListPresenter();
         pesenter.attchView(this);
+        Toast.makeText(ShopListActivity.this, "++"+gc_id, Toast.LENGTH_SHORT).show();
         pesenter.getShopList(gc_id);
     }
 
@@ -114,7 +115,7 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
         switch (message.what) {
             case 0:
                 List<ShopListBean.DatasBean.GoodsListBean> goods_list = (List<ShopListBean.DatasBean.GoodsListBean>) message.obj;
-                Log.e("TAG", "onSuccess: " + goods_list.get(0).getGoods_name());
+
                 //创建和设置adapter
                 RecyclerView.Adapter adapter = new ShopListAdapter(goods_list, this);
                 shopRecyclerView.setAdapter(adapter);

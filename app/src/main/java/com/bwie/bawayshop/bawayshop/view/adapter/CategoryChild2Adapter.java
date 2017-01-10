@@ -3,6 +3,7 @@ package com.bwie.bawayshop.bawayshop.view.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 /**
  * Created by 艾一哲 on 2017/1/4 0004.
@@ -58,8 +61,9 @@ public class CategoryChild2Adapter extends RecyclerView.Adapter<CategoryChild2Ad
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String gc_id = desList.get(position).getGc_id();
+                Log.e("TAG", "++"+gc_id);
                 Intent intent= new Intent(mContext,ShopListActivity.class);
-                intent.putExtra("gc_id",gc_id);
+                intent.putExtra("gcid",gc_id);
                 //重新创建一个新的栈 把Activity放入新的栈
 //               intent.setFlags(FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);

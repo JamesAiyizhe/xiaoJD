@@ -1,6 +1,7 @@
 package com.bwie.bawayshop.bawayshop.presenter;
 
 import android.os.Message;
+import android.util.Log;
 
 import com.bwie.bawayshop.bawayshop.model.api.HttpRequest;
 import com.bwie.bawayshop.bawayshop.model.bean.ShopListBean;
@@ -16,6 +17,7 @@ public class ShopListPresenter extends BasePresenter<ShopListView> {
 
     private Message msg = new Message();
     private String url = "http://169.254.188.41/mobile/index.php?act=goods&op=goods_list&page=100&key=1&gc_id=";
+    private String url1 = "http://169.254.23.18/mobile/index.php?act=goods&op=goods_list&page=100&key=1&gc_id=";
 
     /**
      *
@@ -23,6 +25,7 @@ public class ShopListPresenter extends BasePresenter<ShopListView> {
      */
     public void getShopList(String gc_id){
         HttpRequest request = HttpRequest.getInstance();
+        Log.e("TAG",url+gc_id);
         request.requestJson2Bean(url+gc_id, ShopListBean.class, new HttpRequest.RequestJson2BeanCallBack<ShopListBean>() {
             @Override
             public void success(ShopListBean result) {

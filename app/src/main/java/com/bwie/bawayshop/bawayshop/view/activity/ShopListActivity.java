@@ -56,6 +56,7 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
     private ShopListPresenter pesenter;
 
     private LinearLayoutManager layoutManager;
+    private ShopListAdapter adapter;
 
 
     /**
@@ -106,7 +107,10 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
         pesenter = new ShopListPresenter();
         pesenter.attchView(this);
         Toast.makeText(ShopListActivity.this, "++"+gc_id, Toast.LENGTH_SHORT).show();
+
         pesenter.getShopList(gc_id);
+
+
     }
 
 
@@ -114,11 +118,33 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
     public void onSuccess(Message message) {
         switch (message.what) {
             case 0:
-                List<ShopListBean.DatasBean.GoodsListBean> goods_list = (List<ShopListBean.DatasBean.GoodsListBean>) message.obj;
+                final List<ShopListBean.DatasBean.GoodsListBean> goods_list = (List<ShopListBean.DatasBean.GoodsListBean>) message.obj;
 
                 //创建和设置adapter
-                RecyclerView.Adapter adapter = new ShopListAdapter(goods_list, this);
+                adapter = new ShopListAdapter(goods_list, this);
                 shopRecyclerView.setAdapter(adapter);
+                //RecyclerView自定义监听监听到的是Title
+                adapter.setOnItemClickLister(new ShopListAdapter.onRecyclerViewItemClickListener() {
+                    @Override
+                    public void onItemClickLister(View v, String position) {
+                        Intent intent = new Intent(ShopListActivity.this,ShopDetailsActivity.class);
+                        intent.putExtra("goods_id",position);
+                        startActivity(intent);
+//                        //调用跳转详情的方法
+//                        pesenter.getShopDeatails(position);
+
+
+
+                    }
+                });
+
+
+
+                break;
+            //请求跳转详情页
+            case 1:
+
+
                 break;
 
         }
@@ -145,6 +171,7 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
             case R.id.btn_sx_order:
                 break;
             case R.id.btn_model:
+                Toast.makeText(this, "model改变", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_shopList_back:
                 finish();

@@ -20,6 +20,7 @@
         <activity android:name=".view.activity.MainActivity"></activity>
         <activity android:name=".view.activity.WelcomeActivity"></activity>
         <activity android:name=".view.activity.ShopListActivity"></activity>
+        <activity android:name=".view.activity.ShopDetailsActivity"></activity>
     </application>
 
 </manifest>

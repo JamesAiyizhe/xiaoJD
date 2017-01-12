@@ -74,8 +74,8 @@
             android:layout_height="35dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="3dp"
+            android:src="@mipmap/details_list_btn"
 
-            android:background="@drawable/listsletor"
             />
     </LinearLayout>
 

@@ -128,7 +128,7 @@ public class ShopDetailsActivity extends BaseActivity implements ShopDetailsView
         //设置Adapter
         RecommendAdapter adapter = new RecommendAdapter(commendList,this);
         particularsGoodsListRecyclerview.setAdapter(adapter);
-        //
+        //店铺推荐RecyclerView
         adapter.setOnRecyclerViewItemListener(new RecommendAdapter.OnRecyclerViewItemListener() {
             @Override
             public void RecyclerViewItemListener(View view, String position) {

@@ -54,7 +54,7 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
     @BindView(R.id.btn_shopList_search)
     ImageButton btnShopListSearch;
     private ShopListPresenter pesenter;
-
+    private  boolean flag;
     private LinearLayoutManager layoutManager;
     private ShopListAdapter adapter;
 
@@ -130,22 +130,10 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
                         Intent intent = new Intent(ShopListActivity.this,ShopDetailsActivity.class);
                         intent.putExtra("goods_id",position);
                         startActivity(intent);
-//                        //调用跳转详情的方法
-//                        pesenter.getShopDeatails(position);
-
-
-
                     }
                 });
+             break;
 
-
-
-                break;
-            //请求跳转详情页
-            case 1:
-
-
-                break;
 
         }
 
@@ -163,6 +151,7 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
      */
     @OnClick({R.id.btn_zh_order, R.id.btn_xl_order, R.id.btn_sx_order, R.id.btn_model,R.id.btn_shopList_back, R.id.btn_shopList_search})
     public void onClick(View view) {
+
         switch (view.getId()) {
             case R.id.btn_zh_order:
                 break;
@@ -171,7 +160,16 @@ public class ShopListActivity extends BaseActivity implements ShopListView, Swip
             case R.id.btn_sx_order:
                 break;
             case R.id.btn_model:
-                Toast.makeText(this, "model改变", Toast.LENGTH_SHORT).show();
+                if (flag){
+                    btnModel.setImageResource(R.mipmap.details_list_btn);
+                    flag = false;
+                    Toast.makeText(this, flag+"", Toast.LENGTH_SHORT).show();
+                }else if(!flag) {
+                    btnModel.setImageResource(R.mipmap.detail_grid_btn);
+                    flag = true;
+                    Toast.makeText(this, flag+"", Toast.LENGTH_SHORT).show();
+                }
+//                Toast.makeText(this, "model改变", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btn_shopList_back:
                 finish();
